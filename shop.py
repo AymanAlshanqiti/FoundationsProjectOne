@@ -69,7 +69,7 @@ def get_order():
 
     while customer_input != "Exit":
         
-        if is_valid_order(customer_input) == True:
+        if is_valid_order(customer_input):
             order_list.append(customer_input)
             customer_input = input()
 
@@ -90,6 +90,9 @@ def accept_credit_card(total):
     else:
         return True
 
+    """ Anather way to write the condition """
+    # return True if total > 5 else False 
+
 def get_total_price(order_list):
     """
     Calculate and return total price of the order.
@@ -101,10 +104,10 @@ def get_total_price(order_list):
             total += menu[order]
 
         elif order in original_flavors:
-            total += 2
+            total += original_price
 
         else:
-            total += 2.750
+            total += signature_price
 
     return total
 
